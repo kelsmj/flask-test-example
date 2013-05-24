@@ -1,8 +1,5 @@
 import json
-import nose
 from nose.tools import *
-
-from application import User
 
 from tests import test_app
 
