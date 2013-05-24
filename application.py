@@ -1,10 +1,9 @@
 import os
 from flask import Flask
-from flask.ext import restful
 from flask.ext.restful import Resource,  reqparse, Api
 from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.orm import scoped_session, sessionmaker, relationship, column_property
-from sqlalchemy.ext.declarative import declarative_base, declared_attr
+from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.exc import IntegrityError
 
 app = Flask("flasktestexample")
@@ -62,7 +61,6 @@ class UserView(Resource):
 
 class UserViewList(Resource):
   def get(self):
-    e = User.query.all()
     results = []
     for row in User.query.all():
       results.append(row.as_dict())
